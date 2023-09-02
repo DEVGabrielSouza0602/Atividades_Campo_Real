@@ -90,10 +90,52 @@ pilha. A cada vez que um comando é executado, ele é adicionado à pilha.
 Implemente a capacidade de desfazer um comando usando a pilha.'''
 
 lopp_ex_5 = True
+numero_correto = False
+comandos = []
+
+
+def apresentacao_de_comando(lista):
+    for i in lista:
+        print(i, end='  |  ')
+
 
 while lopp_ex_5:
-    print(20*'🦕')
+    escolha_menu = 0
     print('Menu inicial: ')
     print('[1] INSERIR ')
     print('[2] EXCLUIR ULTIMO COMANDO ')
     print('[3] VIZUALIZAR ')
+    print('[4] SAIR ')
+    escolha_menu = input('Digite o numero de sua opção: ')
+    try:
+        escolha_menu = int(escolha_menu)
+        numero_correto = True
+    except:
+        print('Digite um numero...')
+        print('Reniciando...')
+        time.sleep(2)
+        os.system('cls')
+
+    if numero_correto is True:
+        time.sleep(1)
+        os.system('cls')
+        if escolha_menu == 1:
+            inserir_comando = input('Digite o comando para inserir: ')
+            comandos.append(inserir_comando)
+            print('Inserindo Comando... ')
+            time.sleep(2)
+            print('Inserido...')
+        elif escolha_menu == 2:
+            print('Deletando ultimo item... ')
+            time.sleep(2)
+            print('Deletado...')
+            comandos.pop()
+        elif escolha_menu == 3:
+            print('Apresentação de comandos: ')
+            apresentacao_de_comando(comandos)
+        elif escolha_menu == 4:
+            print('Saindo do sistema... ')
+            lopp_ex_5 = False
+
+    time.sleep(2)
+    os.system('cls')
