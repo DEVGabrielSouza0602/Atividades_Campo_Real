@@ -20,13 +20,67 @@ print(F'A SOMA DOS NUMEROS É {somas}')
 time.sleep(2)
 os.system('cls')
 
+'''2. Escreva uma função recursiva para calcular o número fatorial de um número inteiro
+positivo.'''
 
-'''
-2. Escreva uma função recursiva para calcular o número fatorial de um número inteiro
-positivo.
-3. Escreva uma função que use uma pilha para inverter uma string.
-4. Escreva uma função que converte um número decimal em sua representação binária
-usando uma pilha.
-5. Implemente um histórico de comandos de um editor de texto simples usando uma
-pilha. A cada vez que um comando é executado, ele é adicionado à pilha.
-Implemente a capacidade de desfazer um comando usando a pilha.'''
+
+def fatorial_de_numero_x(numero):
+    # caso base
+    if numero <= 1:
+        return 1
+    return numero*fatorial_de_numero_x(numero-1)
+
+
+numero_digitado_fatorial = int(input('Digite um Numero INTEIRO: '))
+fatoracao = fatorial_de_numero_x(numero_digitado_fatorial)
+print(F'A FATORAÇÃO DOS NUMEROS É {fatoracao}')
+time.sleep(2)
+os.system('cls')
+
+'''3. Escreva uma função que use uma pilha para inverter uma string.'''
+
+
+def funcao_para_inverter_string(palavra):
+    return palavra[::-1]
+
+
+palavra_digitada = input('Digite a palavra para inversão: ')
+palavra_invertida = funcao_para_inverter_string(palavra_digitada)
+
+print(f'A palavra invertida fica "{palavra_invertida}"')
+time.sleep(2)
+os.system('cls')
+'''4. Escreva uma função que converte um número decimal em sua representação binária
+usando uma pilha.'''
+
+pilha_de_numero_binario = []
+
+
+def numero_decimal_para_binario(numero, pilha):
+    if numero < 2:
+
+        pilha.append(int(numero))
+        return numero
+    else:
+        pilha.append(int(numero % 2))
+    numero = numero/2
+    int(numero)
+    return numero_decimal_para_binario(numero, pilha)
+
+
+def apresentacao_de_pilha(pilha):
+    print('Segue o numero decimal em binario: ')
+    for i in pilha:
+        print(i, end='')
+
+
+numero_decimal = float(input('Digite um numero inteiro: '))
+
+numero_inteiro = int(numero_decimal)
+
+numero_binario = numero_decimal_para_binario(
+    numero_inteiro, pilha_de_numero_binario)
+
+apresentacao_de_pilha(pilha_de_numero_binario)
+time.sleep(4)
+os.system('cls')
