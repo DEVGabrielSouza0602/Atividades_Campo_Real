@@ -19,13 +19,16 @@ def apresentacao_de_dados(fila):
 def armazenamento_de_dados(lista01, lista02, fila):
     for chave, valor in fila.items():
         if valor == 1:
-            lista01.add(chave)
+            lista01.append(chave)
         if valor == 2:
-            lista02.add(chave)
+            lista02.append(chave)
 
 
-def apresentacao_de_dados_dicionarios(lista):
-    for i in lista:
+def apresentacao_de_dados_dicionarios(lista01, lista02):
+    for i in lista01:
+        print(i, end=' | ')
+        time.sleep(1)
+    for i in lista02:
         print(i, end=' | ')
         time.sleep(1)
 
@@ -43,24 +46,16 @@ def apresentacao_de_dados_dicionarios_inutilizado(fila):
             time.sleep(1)
 
 
-def inserir_com_prioridade(fila, prioridade_do_item, item):
-    for i in lifilasta:
-        ...
-
-
-def remover_elemento_x(fila, indice):
-    fila.pop(indice)
-
-
 def inserir_dados_em_dicionario(fila, chave, dado_para_inserir):
     fila[chave] = dado_para_inserir
 
 
-def remover_com_o_indice_desejado(fila, indice):
+def remover_com_o_indice_desejado(fila_das_chaves, variavel_coringa, indice, dicionario):
     if indice > -1:
-        if indice <= len(fila):
+        if indice <= len(fila_das_chaves):
             print('Removendo elemento...')
-            remover_elemento_x(fila, indice)
+            variavel_coringa = fila_das_chaves[indice]
+            del dicionario[variavel_coringa]
             limpesa_e_time(2)
         else:
             print('INDICE NÃO EXISTE...')
